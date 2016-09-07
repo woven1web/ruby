@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   
+<<<<<<< HEAD
   resources :articles
   devise_for :users
+=======
+ devise_for :users, :controllers => { registrations: 'registrations' }
+>>>>>>> userupdate
   root to: 'pages#index'
 
   get 'pages/contact'
