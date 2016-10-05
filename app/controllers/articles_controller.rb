@@ -7,7 +7,7 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
   def index
-    @article = Article.all
+    @articles = Article.all
   end
 
   # GET /articles/1
@@ -17,7 +17,7 @@ class ArticlesController < ApplicationController
 
   # GET /articles/new
   def new
-     @article = current_user.article.build
+     @articles = current_user.articles.build
   end
 
   # GET /articles/1/edit
@@ -27,15 +27,15 @@ class ArticlesController < ApplicationController
   # POST /articles
   # POST /articles.json
   def create
-    @article = current_user.article.build(article_params)
+    @articles = current_user.articles.build(article_params)
 
     respond_to do |format|
-      if @article.save
-        format.html { redirect_to @article, notice: 'Article was successfully created.' }
-        format.json { render :show, status: :created, location: @article }
+      if @articles.save
+        format.html { redirect_to @articles, notice: 'Article was successfully created.' }
+        format.json { render :show, status: :created, location: @articles }
       else
         format.html { render :new }
-        format.json { render json: @article.errors, status: :unprocessable_entity }
+        format.json { render json: @articles.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -45,8 +45,8 @@ class ArticlesController < ApplicationController
   def update
     respond_to do |format|
       if @article.update(article_params)
-        format.html { redirect_to @article, notice: 'Article was successfully updated.' }
-        format.json { render :show, status: :ok, location: @article }
+        format.html { redirect_to @articles, notice: 'Article was successfully updated.' }
+        format.json { render :show, status: :ok, location: @articles }
       else
         format.html { render :edit }
         format.json { render json: @article.errors, status: :unprocessable_entity }
@@ -57,7 +57,7 @@ class ArticlesController < ApplicationController
   # DELETE /articles/1
   # DELETE /articles/1.json
   def destroy
-    @article.destroy
+    @articles.destroy
     respond_to do |format|
       format.html { redirect_to articles_url, notice: 'Article was successfully destroyed.' }
       format.json { head :no_content }
