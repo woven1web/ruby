@@ -1,13 +1,12 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
-  
-  
 
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.all
+    @articles = Article.paginate(page: params[:page], per_page: 2) 
+    @last4 = Article.last(4)
   end
 
   # GET /articles/1
@@ -17,7 +16,7 @@ class ArticlesController < ApplicationController
 
   # GET /articles/new
   def new
-     @articles = current_user.articles.build
+    @articles = current_user.article.build
   end
 
   # GET /articles/1/edit
@@ -27,7 +26,7 @@ class ArticlesController < ApplicationController
   # POST /articles
   # POST /articles.json
   def create
-    @articles = current_user.articles.build(article_params)
+    @articles = current_user.article.build(article_params)
 
     respond_to do |format|
       if @articles.save
@@ -44,12 +43,12 @@ class ArticlesController < ApplicationController
   # PATCH/PUT /articles/1.json
   def update
     respond_to do |format|
-      if @article.update(article_params)
+      if @articles.update(article_params)
         format.html { redirect_to @articles, notice: 'Article was successfully updated.' }
         format.json { render :show, status: :ok, location: @articles }
       else
         format.html { render :edit }
-        format.json { render json: @article.errors, status: :unprocessable_entity }
+        format.json { render json: @articles.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -67,7 +66,7 @@ class ArticlesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_article
-      @article = Article.find(params[:id])
+      @articles = Article.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

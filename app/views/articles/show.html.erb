@@ -1,8 +1,10 @@
 <p id="notice"><%= notice %></p>
 
+
+
 <p>
   <strong>Created by:</strong>
-  <%= @article.user.username %>
+  <%= @articles.user.username %>
 </p>
 
 
@@ -10,13 +12,15 @@
 
 <p>
   <strong>Title:</strong>
-  <%= @article.title %>
+  <%= @articles.title %>
 </p>
 
 <p>
   <strong>Body:</strong>
-  <%= @article.body %>
+  <%= @articles.body %>
 </p>
 
-<%= link_to 'Edit', edit_article_path(@article) %> |
+<%= render :partial => "comments/form", locals: { comment: @comment } %>
+
+<%= link_to 'Edit', edit_article_path(@articles) %> |
 <%= link_to 'Back', article_path %>

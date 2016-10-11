@@ -16,7 +16,7 @@ gem 'bootstrap-sass-extras', '~> 0.0.2'
 gem 'devise', '~> 4.2'
 gem 'simple_form', '~> 3.3', '>= 3.3.1'
 
-
+gem 'will_paginate', '~> 3.1', '>= 3.1.3'
 
 
 group :development, :test do

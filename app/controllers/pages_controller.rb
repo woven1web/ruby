@@ -3,14 +3,13 @@ class PagesController < ApplicationController
   
   def index
     if current_user
-      redirect_to_articles_path
+      redirect_to articles_path
     end
     @articles = Article.last(5)
-    
   end
 
   def contact
-    @contact = Contact.new 
+  @contact = Contact.new  
   end
 
   def about
