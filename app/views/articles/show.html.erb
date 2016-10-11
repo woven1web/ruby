@@ -2,25 +2,83 @@
 
 
 
-<p>
-  <strong>Created by:</strong>
-  <%= @articles.user.username %>
-</p>
+
+<div class="row">
+
+    <!-- Blog Post Content Column -->
+    <div class="col-lg-8">
+
+        <!-- Blog Post -->
+
+        <!-- Title -->
+        <h1 style="font-size: 62.5px;">  
+         <%= @articles.title %>
+        </h1>
+
+        <!-- Author -->
+        <p class="lead">
+          <%= @articles.user.username %>
+        </p>
+
+        <hr>
+
+        <!-- Date/Time -->
+        <p><span class="glyphicon glyphicon-time"></span> Was Posted: 
+     
+
+        <hr>
+
+        <!-- Preview Image -->
+        
+
+        <!-- Post Content -->
+          <%= @articles.body %>
+       
+        <hr>
+
+        <!-- Blog Comments -->
+<%= render @articles.comments %>
+        <!-- Comments Form -->
+       
+        <%= render 'comments/form' %>  
+        <div class="well">
+          
+
+<h4></h4>
+
+
+        </div>
+
+        <hr>
+
+        <!-- Posted Comments -->
+
+        <!-- Comment -->
 
 
 
+    </div>
 
-<p>
-  <strong>Title:</strong>
-  <%= @articles.title %>
-</p>
+    <!-- Blog Sidebar Widgets Column -->
+    <div class="col-md-4">
 
-<p>
-  <strong>Body:</strong>
-  <%= @articles.body %>
-</p>
+        <!-- Blog Search Well -->
+        
 
-<%= render :partial => "comments/form", locals: { comment: @comment } %>
+        <!-- Blog Categories Well -->
+        
+
+        <!-- Side Widget Well -->
+        <div class="well">
+          <h4></h4>
+  
+        </div>
+
+    </div>
+
+</div>
+
 
 <%= link_to 'Edit', edit_article_path(@articles) %> |
-<%= link_to 'Back', article_path %>
+<%= link_to 'Back', articles_path %>
+<%= link to 'Home Page', root_path %>
