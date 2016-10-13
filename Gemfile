@@ -16,7 +16,7 @@ gem 'bootstrap-sass-extras', '~> 0.0.2'
 gem 'devise', '~> 4.2'
 gem 'simple_form', '~> 3.3', '>= 3.3.1'
 
-
+ruby '2.2.4'
 
 
 group :development, :test do
