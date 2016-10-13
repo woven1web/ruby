@@ -44,7 +44,7 @@ class ArticlesController < ApplicationController
   # PATCH/PUT /articles/1.json
   def update
     respond_to do |format|
-      if @article.update(article_params)
+      if @articles.update(article_params)
         format.html { redirect_to @articles, notice: 'Article was successfully updated.' }
         format.json { render :show, status: :ok, location: @articles }
       else
@@ -67,7 +67,7 @@ class ArticlesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_article
-      @article = Article.find(params[:id])
+      @articles = Article.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

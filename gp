@@ -1,4 +1,4 @@
 git add -A
-git commit -m "fixed uncommitted changes"
+git commit -m "updated mailer"
 git push origin master
 git push heroku master
