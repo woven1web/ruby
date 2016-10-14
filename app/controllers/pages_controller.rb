@@ -4,7 +4,7 @@ class PagesController < ApplicationController
   def index
      if current_user
       redirect_to articles_path
-    end
+  end
     @articles = Article.last(4)
     
   end

@@ -1,4 +1,4 @@
 git add -A
-git commit -m "updated gemfile and bundler"
+git commit -m "push to heroku"
 git push origin master
-git push origin heroku
+git push heroku master
