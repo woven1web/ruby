@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<%= render 'comments/form' %>
 
 
 
@@ -37,7 +37,7 @@
         <hr>
 
         <!-- Blog Comments -->
-<%= render @articles.comments %>
+<%= render @articles.comment %>
         <!-- Comments Form -->
        
         <%= render 'comments/form' %>  
