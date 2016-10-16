@@ -16,7 +16,7 @@ class ArticlesController < ApplicationController
 
   # GET /articles/new
   def new
-    @articles = current_user.article.build
+    @articles = current_user.articles.build
   end
 
   # GET /articles/1/edit
@@ -26,7 +26,7 @@ class ArticlesController < ApplicationController
   # POST /articles
   # POST /articles.json
   def create
-    @articles = current_user.article.build(article_params)
+    @articles = current_user.articles.build(article_params)
 
     respond_to do |format|
       if @articles.save

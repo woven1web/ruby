@@ -1,0 +1,7 @@
+<%= simple_form_for ([@articles, @articles.comment.build]) do |f| %>
+
+<%= f.input :body%>
+<%= f.submit "Post your comment"%>
+
+
+<% end %>
