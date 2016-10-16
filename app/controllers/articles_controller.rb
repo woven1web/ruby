@@ -49,7 +49,7 @@ class ArticlesController < ApplicationController
         format.json { render :show, status: :ok, location: @articles }
       else
         format.html { render :edit }
-        format.json { render json: @article.errors, status: :unprocessable_entity }
+        format.json { render json: @articles.errors, status: :unprocessable_entity }
       end
     end
   end
