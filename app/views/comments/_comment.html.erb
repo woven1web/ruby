@@ -1,97 +1,19 @@
-<<<<<<< HEAD
-<p id="notice"><%= notice %></p>
-<%= render 'comments/form' %>
-
-
-
-<div class="row">
-
-    <!-- Blog Post Content Column -->
-    <div class="col-lg-8">
-
-        <!-- Blog Post -->
-
-        <!-- Title -->
-        <h1 style="font-size: 62.5px;">  
-         <%= @articles.title %>
-        </h1>
-
-        <!-- Author -->
-        <p class="lead">
-          <%= @articles.user.username %>
-        </p>
-
-        <hr>
-
-        <!-- Date/Time -->
-        <p><span class="glyphicon glyphicon-time"></span> Was Posted: 
-     
-
-        <hr>
-
-        <!-- Preview Image -->
-        
-
-        <!-- Post Content -->
-          <%= @articles.body %>
-       
-        <hr>
-
-        <!-- Blog Comments -->
-<%= render @articles.comment %>
-        <!-- Comments Form -->
-       
-        <%= render 'comments/form' %>  
-        <div class="well">
-          
-
-<h4></h4>
-
-
-        </div>
-
-        <hr>
-
-        <!-- Posted Comments -->
-
-        <!-- Comment -->
-
-
-
-    </div>
-
-    <!-- Blog Sidebar Widgets Column -->
-    <div class="col-md-4">
-
-        <!-- Blog Search Well -->
-        
-
-        <!-- Blog Categories Well -->
-        
-
-        <!-- Side Widget Well -->
-        <div class="well">
-          <h4></h4>
-  
-        </div>
-
-    </div>
-
-</div>
-
-
-<%= link_to 'Edit', edit_article_path(@articles) %> |
-<%= link_to 'Back', articles_path %>
-=======
 <div class="media">
- <div class="pull-left">
-
- </div>
- <div class="media-body">
- <p class="media-heading pull-right">
-
- </p>
-
- </div>
+    <div class="pull-left">
+        
+        <%= comment.user.username %>
+       
+    </div>
+    <div class="media-body">
+        <p class="media-heading pull-right">
+          <%= time_ago_in_words(comment.created_at) %>
+        </p><br />
+        <%= comment.body %>
+       
+    </div>
 </div>
->>>>>>> comments
+
+
+	<%= link_to "Edit", edit_article_comment_path(comment.article, comment) %>
+
+<%= link_to "Delete", [comment.article, comment], method: :delete, data: { confirm: "Are you sure?" } %>
