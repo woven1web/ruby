@@ -1,13 +1,12 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
-  
-  
 
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.all
+    @articles = Article.paginate(page: params[:page], per_page: 2) 
+    @last4 = Article.last(4)
   end
 
   # GET /articles/1
@@ -17,7 +16,7 @@ class ArticlesController < ApplicationController
 
   # GET /articles/new
   def new
-     @articles = current_user.articles.build
+    @articles = current_user.articles.build
   end
 
   # GET /articles/1/edit

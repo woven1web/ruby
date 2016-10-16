@@ -21,6 +21,20 @@ ActiveRecord::Schema.define(version: 20161013015218) do
     t.integer  "user_id"
   end
 
+<<<<<<< HEAD
+=======
+  create_table "comments", force: :cascade do |t|
+    t.text     "body"
+    t.integer  "user_id"
+    t.integer  "article_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "comments", ["article_id"], name: "index_comments_on_article_id"
+  add_index "comments", ["user_id"], name: "index_comments_on_user_id"
+
+>>>>>>> comments
   create_table "contacts", force: :cascade do |t|
     t.string   "name"
     t.string   "email"
