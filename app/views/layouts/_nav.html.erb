@@ -8,7 +8,8 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <%= link_to "Patty's Articles", root_path, class: 'navbar-brand' %>
+      <ul class="nav navbar-nav navbar-left">
+      <%= link_to "Patty's Articles", root_path, class: 'navbar-brand'%> 
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -17,8 +18,8 @@
       
       <ul class="nav navbar-nav navbar-right">
         
-        <li><%= link_to "Contact Us", pages_contact_path %></li>
-        <li><%= link_to "About Us",  pages_about_path %></li>
+        <li><%= link_to "Contact Me", pages_contact_path %></li>
+        <li><%= link_to "About Me",  pages_about_path %></li>
         <li><%= link_to "View Articles",  articles_path %></li>
         
       <% if !current_user %>

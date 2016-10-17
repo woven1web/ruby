@@ -3,11 +3,8 @@ class CommentsController < ApplicationController
   
   def create
     @articles = Article.find(params[:article_id])
-<<<<<<< HEAD
-    @comment = @articles.comments.create(params[:comment].permit(:body))
-=======
     @comment = @articles.comment.create(params[:comment].permit(:body))
->>>>>>> comments
+   
     @comment.user_id = current_user.id if current_user
     
     
@@ -31,11 +28,7 @@ end
   
   def edit
     @articles = Article.find(params[:article_id])
-<<<<<<< HEAD
     @comment = @articles.comments.find(params[:id])
-=======
-    @comment = @article.comments.find(params[:id])
->>>>>>> comments
   end
   
   def destroy
