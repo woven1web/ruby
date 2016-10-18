@@ -27,6 +27,8 @@ group :development do
   gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'sqlite3'
+  gem 'zonebie', '~> 0.6.1'
+  
 end
 
 group :production do

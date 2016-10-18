@@ -1,19 +1,76 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
 
-<p>
-  <strong>Created by:</strong>
-  <%= @articles.user.username %>
-</p>
+    <!-- Blog Post Content Column -->
+    <div class="col-lg-8">
 
-<p>
-  <strong>Title:</strong>
-  <%= @articles.title %>
-</p>
+        <!-- Blog Post -->
 
-<p>
-  <strong>Body:</strong>
-  <%= @articles.body %>
-</p>
+        <!-- Title -->
+        <h1 style="font-size: 25.5px;">  
+         <%= @articles.title %>
+        </h1>
+
+        <!-- Author -->
+        <p class="lead"> Created by:
+          <%= @articles.user.username %>
+          <%= @articles.created_at %>
+        </p>
+
+        <hr>
+
+        <!-- Date/Time -->
+        <p><span class="glyphicon glyphicon-time"></span> Was Posted: 
+     
+
+        <hr>
+
+        <!-- Preview Image -->
+        
+
+        <!-- Post Content -->
+        
+          <h5> Article:</h5>
+          <%= @articles.body %>
+       
+        <hr>
+
+        <!-- Blog Comments -->
+<%= render @articles.comments %>
+        <!-- Comments Form -->
+       
+        <%= render 'comments/form' %>  
+        
+
+        </div>
+
+        <hr>
+
+        <!-- Posted Comments -->
+
+        <!-- Comment -->
+
+
+
+    </div>
+
+    <!-- Blog Sidebar Widgets Column -->
+    <div class="col-md-4">
+
+        <!-- Blog Search Well -->
+        
+
+        <!-- Blog Categories Well -->
+        
+
+        <!-- Side Widget Well -->
+        
+       
+
+    
+
+
 
 <%= link_to 'Edit', edit_article_path(@articles) %> |
-<%= link_to 'Back', root_path %>
+<%= link_to 'Back', articles_path %>
+</div>
+</div>

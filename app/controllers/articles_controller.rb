@@ -1,11 +1,13 @@
 class ArticlesController < ApplicationController
+  
+  
   before_action :set_article, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
 
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.paginate(page: params[:page], per_page: 4) 
+    @articles = Article.paginate(page: params[:page], per_page: 2) 
     @last4 = Article.last(4)
     
   end
@@ -58,9 +60,9 @@ class ArticlesController < ApplicationController
   # DELETE /articles/1.json
   def destroy
     @articles.destroy
-    respond_to do |format|
-      format.html { redirect_to articles_url, notice: 'Article was successfully destroyed.' }
-      format.json { head :no_content }
+   def destroy
+  current_user.articles.find(params[id]).destroy
+  redirect_to root_path
     end
   end
 

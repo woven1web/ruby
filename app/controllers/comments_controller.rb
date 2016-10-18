@@ -3,8 +3,7 @@ class CommentsController < ApplicationController
   
   def create
     @articles = Article.find(params[:article_id])
-    @comment = @articles.comment.create(params[:comment].permit(:body))
-   
+    @comment = @articles.comments.create(params[:comment].permit(:body))
     @comment.user_id = current_user.id if current_user
     
     
@@ -20,7 +19,7 @@ end
     @comment = @articles.comments.find(params[:id])
     
     if @comment.update(params[:comment].permit(:body))
-      redirect_to article_path(@articles), notice: "Your comment has been updated."
+      redirect_to article_path(@article), notice: "Your comment has been updated."
     else
       render 'edit'
     end
@@ -37,6 +36,5 @@ end
     @comment.destroy
     redirect_to article_path(@articles), notice: "Your comment has been deleted."
   end
-  
   
 end
