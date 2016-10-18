@@ -5,19 +5,26 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
   def index
+<<<<<<< HEAD
     @articles = Article.paginate(page: params[:page], per_page: 4) 
     @last4 = Article.last(4)
     
+=======
+    @articles = Article.all
+>>>>>>> association
   end
 
   # GET /articles/1
   # GET /articles/1.json
-  def show
-  end
+ 
 
   # GET /articles/new
   def new
+<<<<<<< HEAD
     @articles = current_user.articles.build
+=======
+     @articles = current_user.articles.build
+>>>>>>> association
   end
 
   # GET /articles/1/edit
@@ -32,7 +39,11 @@ class ArticlesController < ApplicationController
     respond_to do |format|
       if @articles.save
         format.html { redirect_to @articles, notice: 'Article was successfully created.' }
+<<<<<<< HEAD
         format.json { render :show, status: :created, location: @articles }
+=======
+        format.json { render :show, status: :created, location: @article }
+>>>>>>> association
       else
         format.html { render :new }
         format.json { render json: @articles.errors, status: :unprocessable_entity }
