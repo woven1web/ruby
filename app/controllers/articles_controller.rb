@@ -31,7 +31,7 @@ class ArticlesController < ApplicationController
     respond_to do |format|
       if @articles.save
         format.html { redirect_to @articles, notice: 'Article was successfully created.' }
-        format.json { render :show, status: :created, location: @article }
+        format.json { render :show, status: :created, location: @articles }
       else
         format.html { render :new }
         format.json { render json: @articles.errors, status: :unprocessable_entity }
