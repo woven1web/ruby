@@ -1,4 +1,4 @@
-class ArticlesController < ApplicationController
+ class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
 
@@ -31,10 +31,10 @@ class ArticlesController < ApplicationController
     respond_to do |format|
       if @articles.save
         format.html { redirect_to @articles, notice: 'Article was successfully created.' }
-        format.json { render :show, status: :created, location: @articles }
+        format.json { render :show, status: :created, location: @article }
       else
         format.html { render :new }
-        format.json { render json: @articles.errors, status: :unprocessable_entity }
+        format.json { render json: @article.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -45,7 +45,7 @@ class ArticlesController < ApplicationController
     respond_to do |format|
       if @articles.update(article_params)
         format.html { redirect_to @articles, notice: 'Article was successfully updated.' }
-        format.json { render :show, status: :ok, location: @article }
+        format.json { render :show, status: :ok, location: @articles }
       else
         format.html { render :edit }
         format.json { render json: @articles.errors, status: :unprocessable_entity }

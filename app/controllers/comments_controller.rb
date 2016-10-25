@@ -33,9 +33,11 @@ end
   
   def destroy
     @articles = Article.find(params[:article_id])
-    @comment = @articles.comments.find(params[:id])
+    @comment = @articles.comment.find(params[:id])
     @comment.destroy
     redirect_to article_path(@articles), notice: "Your comment has been deleted."
+    
+  
   end
   
   
